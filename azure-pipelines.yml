@@ -52,6 +52,13 @@ stages:
       displayName: 'Archive files'
       inputs:
         rootFolderOrFile: '$(workingDirectory)'
+- task: AzureFunctionApp@2
+  inputs:
+    connectedServiceNameARM: 'MCAPS-Hybrid-REQ-71098-2024-xinyipei (2bb67a0a-73d1-4ddc-afc6-42ebcd2b65c7)'
+    appType: 'functionAppLinux'
+    appName: 'PythonFunctionDemo9'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
         includeRootFolder: false
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
